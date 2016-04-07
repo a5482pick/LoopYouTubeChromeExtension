@@ -3,6 +3,22 @@ var looping = 0;   //Extension toggle is not yet clicked.
 var playingUrl = "";
 
 
+//Build an array of the tab id's while Chrome is in use.
+var urls = [];
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  if (changeInfo.audible) {
+   urls[tabId] = changeInfo.audible;
+  }
+});
+
+
+//Use the array of id's to issue an alert that a (possibly) audible tab is being closed.
+chrome.tabs.onRemoved.addListener(function(tabId, removeInfo) {
+    
+    if (urls[tabId]) {
+      alert("You are closing a tab that has had audible content.");
+    }
+});
 
 //The following commences whenever the extension button is pressed.
 chrome.browserAction.onClicked.addListener(function(tab) {
