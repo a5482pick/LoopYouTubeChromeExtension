@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener(
                 video.loop = 1;    
                 
                 //Set the text colour to blue to represent 'looping'.
-                document.body.style.color="blue";
+                document.body.style.color = "blue";
                 var elements = document.body.getElementsByTagName("*");
       
                 for (i = 0; i < elements.length; i++)  {
@@ -29,7 +29,7 @@ chrome.runtime.onMessage.addListener(
                 video.autoplay = 1;
                 
                 //Set the text colour to green to represent 'not looping'.
-                document.body.style.color="green";
+                document.body.style.color = "green";
                 var elements = document.body.getElementsByTagName("*");
       
                 for (i = 0; i < elements.length; i++)  {
